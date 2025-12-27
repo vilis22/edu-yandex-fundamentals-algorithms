@@ -1,38 +1,36 @@
-import sys
 from collections import deque
 
 
 def main():
-    data = sys.stdin.read().split()
-    power = deque(map(int, data[1:]))
+    n = int(input())
+    warrior_forces = deque(map(int, input().split()))
 
-    while len(power) > 3:
-        tail = power.pop()
-        head = power.popleft()
-        body = power.popleft()
-
-        if tail == min(head, body, tail):
-            if head > body:
-                power.appendleft(body)
-                power.appendleft(head)
+    for _ in range(n - 3):
+        first, second, third = (
+            warrior_forces.popleft(),
+            warrior_forces.popleft(),
+            warrior_forces.pop(),
+        )
+        if first > second and first > third:
+            if second > third:
+                warrior_forces.appendleft(second)
             else:
-                power.appendleft(head)
-                power.appendleft(body)
-        elif tail == max(head, body, tail):
-            if head > body:
-                power.appendleft(head)
+                warrior_forces.append(third)
+            warrior_forces.appendleft(first)
+        elif second > first and second > third:
+            if first > third:
+                warrior_forces.append(first)
             else:
-                power.appendleft(body)
-            power.appendleft(tail)
+                warrior_forces.appendleft(third)
+            warrior_forces.appendleft(second)
         else:
-            power.append(tail)
-            if head > body:
-                power.appendleft(head)
+            if first > second:
+                warrior_forces.appendleft(first)
             else:
-                power.appendleft(body)
+                warrior_forces.appendleft(second)
+            warrior_forces.appendleft(third)
 
-    final = [warrior for warrior in power if warrior != min(power)]
-    sys.stdout.write(f"{final[0]} {final[1]}\n")
+    print(*(warrior for warrior in warrior_forces if warrior != min(warrior_forces)))
 
 
 if __name__ == "__main__":
