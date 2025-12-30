@@ -1,7 +1,7 @@
 [project]
-name = "edu-yandex-fundamentals-algorithms"
+name = "yandex-algorithms"
 version = "0.1.0"
-description = "Add your description here"
+description = "Yandex. Handbooks. Fundamentals of algorithms."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
