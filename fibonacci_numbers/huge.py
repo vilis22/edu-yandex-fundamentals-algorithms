@@ -24,6 +24,6 @@ def pisano_period(m: int) -> int:
 
 
 if __name__ == "__main__":
-    n, m = map(int, sys.stdin.read().split())
-    p = pisano_period(m)
-    sys.stdout.write(str(fibonacci_mod(n % p, m)) + "\n")
+    input_n, input_m = map(int, sys.stdin.read().split())
+    p = pisano_period(input_m)
+    sys.stdout.write(str(fibonacci_mod(input_n % p, input_m)) + "\n")

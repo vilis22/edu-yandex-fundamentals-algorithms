@@ -13,5 +13,5 @@ def fibonacci(n: int) -> int:
 
 if __name__ == "__main__":
     line = sys.stdin.read().strip()
-    n = int(line)
-    sys.stdout.write(str(fibonacci(n)) + '\n')
+    num = int(line)
+    sys.stdout.write(str(fibonacci(num)) + "\n")

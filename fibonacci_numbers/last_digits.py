@@ -1,13 +1,13 @@
 import sys
 
 
-def fibonacci(n: int) -> int:
-    if n <= 1:
+def fibonacci(num: int) -> int:
+    if num <= 1:
         return n
 
     a, b = 0, 1
 
-    for _ in range(n - 1):
+    for _ in range(num - 1):
         a, b = b, a + b
     return b
 
